@@ -1,0 +1,15 @@
+Basic rules of the project
+User enters a word in English, program prints the definition(s) to the screen.
+If the word doesn't exist suggest closest match e.g. rain instead of rainn.
+If there isn't a similar word give a polite message and exit.
+
+My Thoughts
+August 10, 2018
+The project sounds fairly easy. Clearly we'll need a dictionary / hashmap data structure to store the words in memory. I've never worked with JSON before but a quick glance at the file looks like the exact same notation python natively uses for storing data in a dictionary. I might be able to just open and read the file straight into a dictionary. The next major hurdle will be the lookup of similar words. I have a couple ideas on how it might be managed via comparing individual characters in the strings and looking for differences. To avoid checking every single key we would need some initial method to decrease the options. Perhaps eliminating everything that doesn't start with the correct letter and is +/- 3 characters in length compared to the user inputted word. I think that will still be slower than I want. I may need to check online there may be a formula to reduce number of checks needed.
+
+August 11, 2018
+First I need to open the file and bring it into a variable. Then check for a known key and see if it matches the expected definition. There may be a built in JSON reader or maybe a module I could install using pip that will open the file correctly. There is a built in JSON module. All I needed to do was import it and load a file object.
+
+As for the similar word search I seem to remember hearing about a fuzzy string comparison library called fuzzywuzzy. Perhaps I can look at it and it may be the tool to use or point me towards a better one. After looking at the code for FuzzyWuzzy it appears that it uses difflib which is a built in library in python. I'll look at the documentation for that. After examining the documentation for difflib it looks like get_close_matches() is the best method to use. I can even limit the max number of alternate words to suggest to the user.
+
+I have the code working, it could use some polish, but for now I believe I meet all of the base requirements for the project. It would be a good time to look at the solution the instructor used.

@@ -6,6 +6,8 @@
 from json import load
 from difflib import get_close_matches
 
+MAX_MATCHES = 3
+
 
 def ask_question(question):
     return input(question + ":\n")
@@ -24,7 +26,6 @@ def print_definition(definition):
 
 
 def main():
-    MAX_MATCHES = 3
     dictionary = load_dictionary()
     answer = ask_question("Please enter a word")
 

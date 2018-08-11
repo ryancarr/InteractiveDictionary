@@ -6,18 +6,22 @@
 from json import load
 from difflib import get_close_matches
 
+
 def ask_question(question):
     return input(question + ":\n")
 
+
 def load_dictionary():
-    fh = open("data.json","r")
+    fh = open("data.json", "r")
     dictionary = load(fh)
     fh.close()
     return dictionary
 
+
 def print_definition(definition):
     for word in definition:
         print(word)
+
 
 def main():
     MAX_MATCHES = 3
@@ -44,6 +48,7 @@ def main():
                 continue
             else:
                 print("You need to type in either Y or N to continue")
+
 
 if __name__ == "__main__":
     main()
